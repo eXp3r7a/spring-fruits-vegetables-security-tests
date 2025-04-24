@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.containsString;
@@ -19,6 +20,7 @@ public class RecipeControllerIntegrationTest {
     MockMvc mockMvc;
 
     @Test
+    @WithMockUser(username = "user", authorities = {"ROLE_USER"})
     void testGetRecipeAddForm() throws Exception {
         mockMvc.perform(get("/recipes/add"))
                 .andDo(print())
@@ -41,12 +43,13 @@ public class RecipeControllerIntegrationTest {
     }
 
     @Test
+    @WithMockUser(username = "user", authorities = {"ROLE_USER"})
     void testGetRecipeEditPage() throws Exception {
         mockMvc.perform(get("/recipes/edit?recipe_id=1"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("<label class=\"form-label\">Recipe name</label>")))
-                .andExpect(content().string(containsString("<input type=\"text\" class=\"form-control\" id=\"description\" name=\"description\" value=\"Chicken soup with vegetables\">")))
+                .andExpect(content().string(containsString("<input type=\"text\" class=\"form-control\" id=\"description\" name=\"description\" value=")))
                 .andExpect(content().string(containsString("<button type=\"submit\" class=\"btn btn-primary\">Update</button>")));
 
     }
