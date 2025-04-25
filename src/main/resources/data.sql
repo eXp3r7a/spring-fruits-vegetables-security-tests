@@ -1,19 +1,19 @@
-INSERT INTO `products` (`product_id`, `category`, `name`) VALUES
-(1, 'Vegetable', 'Tomato'),
-(2, 'Vegetable', 'Cucumber'),
-(3, 'Fruit', 'Banana'),
-(4, 'Fruit', 'Apple'),
-(5, 'Fruit', 'Grapes'),
-(6, 'Vegetable', 'Carrot'),
-(7, 'Vegetable', 'Patato'),
-(8, 'Vegetable', 'Onion'),
-(9, 'Vegetable', 'Pepper'),
-(10, 'Spices', 'Paprika'),
-(11, 'Spices', 'Salt'),
-(12, 'Spices', 'Rosemary'),
-(13, 'Spices', 'Garlic powder'),
-(14, 'Spices', 'Ginger'),
-(15, 'Spices', 'Cardamon');
+INSERT INTO products (category, name) VALUES
+('Vegetable', 'Tomato'),
+('Vegetable', 'Cucumber'),
+('Fruit', 'Banana'),
+('Fruit', 'Apple'),
+('Fruit', 'Grapes'),
+('Vegetable', 'Carrot'),
+('Vegetable', 'Patato'),
+('Vegetable', 'Onion'),
+('Vegetable', 'Pepper'),
+('Spices', 'Paprika'),
+('Spices', 'Salt'),
+('Spices', 'Rosemary'),
+('Spices', 'Garlic powder'),
+('Spices', 'Ginger'),
+('Spices', 'Cardamon');
 
 ---- phpMyAdmin SQL Dump
 ---- version 5.2.1
@@ -170,9 +170,9 @@ INSERT INTO users (user_id, enabled, first_name, last_name, password, role, user
 ----
 ---- Indexes for table `recipe_products`
 ----
---ALTER TABLE `recipe_products`
---  ADD KEY `FKsjygf1hyuvredgtmgunbwg1u9` (`product_id`),
---  ADD KEY `FKssj43103hudcp3u3x7b8twnd5` (`recipe_id`);
+--ALTER TABLE recipe_products
+--  ADD KEY FKsjygf1hyuvredgtmgunbwg1u9 (product_id),
+--  ADD KEY FKssj43103hudcp3u3x7b8twnd5 (recipe_id);
 --
 ----
 ---- Indexes for table `users`
@@ -187,8 +187,8 @@ INSERT INTO users (user_id, enabled, first_name, last_name, password, role, user
 ----
 ---- AUTO_INCREMENT for table `products`
 ----
---ALTER TABLE `products`
---  MODIFY `product_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+--ALTER TABLE products
+--  MODIFY product_id bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 ----
 ---- AUTO_INCREMENT for table `recipes`
@@ -209,9 +209,9 @@ INSERT INTO users (user_id, enabled, first_name, last_name, password, role, user
 ----
 ---- Constraints for table `recipe_products`
 ----
---ALTER TABLE `recipe_products`
---  ADD CONSTRAINT `FKsjygf1hyuvredgtmgunbwg1u9` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`),
---  ADD CONSTRAINT `FKssj43103hudcp3u3x7b8twnd5` FOREIGN KEY (`recipe_id`) REFERENCES `recipes` (`recipe_id`);
+--ALTER TABLE recipe_products
+--  ADD CONSTRAINT FKsjygf1hyuvredgtmgunbwg1u9 FOREIGN KEY (product_id) REFERENCES products (product_id),
+--  ADD CONSTRAINT FKssj43103hudcp3u3x7b8twnd5 FOREIGN KEY (recipe_id) REFERENCES recipes (recipe_id);
 --COMMIT;
 --
 --/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
