@@ -6,12 +6,17 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.springframework.test.context.ActiveProfiles;
+import org.testcontainers.containers.MySQLContainer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.util.List;
 
 @SpringBootTest
 @ActiveProfiles({"h2db"})
+//@Testcontainers
 public class ProductRepositoryTest {
 
 //    private final ProductRepository productRepository;
@@ -22,6 +27,10 @@ public class ProductRepositoryTest {
 
     @Autowired
     ProductRepository productRepository;
+
+//    @Container
+//    @ServiceConnection
+//    static MySQLContainer mySQLContainer = new MySQLContainer("mysql:8.0").withDatabaseName("db_products_recipes");
 
     @Test
     void testSaveProductInDbAndReturnEntityWhenSuccess(){

@@ -5,7 +5,7 @@ INSERT INTO products (category, name) VALUES
 ('Fruit', 'Apple'),
 ('Fruit', 'Grapes'),
 ('Vegetable', 'Carrot'),
-('Vegetable', 'Patato'),
+('Vegetable', 'Potato'),
 ('Vegetable', 'Onion'),
 ('Vegetable', 'Pepper'),
 ('Spices', 'Paprika'),
