@@ -16,6 +16,14 @@ public class Product {
     @NotEmpty(message = "Category must not be unchecked! Please check category.")
     private String category; // fruit/vegetable/spices
 
+    public Product(String name, String category) {
+        this.name = name;
+        this.category = category;
+    }
+
+    public Product() {
+    }
+
     public Long getProduct_id() {
         return product_id;
     }
